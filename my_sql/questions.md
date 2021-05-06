@@ -12,11 +12,21 @@ brew services stop mysql
 brew services restart mysql
 
 
-
-
 # mysql 如何实现数据备份 
 
 使用mysqldump 工具就可以实现数据库的导出；
 > mysqldump -u root -p password [databaseName] [dump_file]
+
+
+# mysql 设置 root账户 远程连接权限
+> use mysql;   
+
+> update user set Host='%' WHERE `user` = 'root' and `HOST` = 'localhost';
+> flush privileges;
+> select `user`, `HOST` from user;
+
+
+root321. 
+
 
 
